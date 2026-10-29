@@ -1,0 +1,7 @@
+@import url(style.css);
+
+:root {
+  --default-clr: white;
+  --second-clr: black;
+  --third-clr: navy;
+}
