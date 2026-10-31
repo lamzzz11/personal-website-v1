@@ -8,7 +8,7 @@
 
 body {
   font-family: "Popins", sans-serif;
-  background-color: cyan;
+  background-color: bisque;
 }
 
 header {
@@ -22,9 +22,13 @@ nav {
   background-color: beige;
   padding: 15px;
 }
+
+nav h1 {
+  margin: 0 10px;
+}
 nav a {
   text-decoration: none;
-  color: black;
+  color: purple;
 }
 
 nav ul a {
@@ -36,12 +40,9 @@ nav ul a {
 
 nav ul a:hover {
   color: white;
-  background-color: black;
+  background-color: #6c3c0c;
   border-radius: 10px;
-}
-
-nav h1 {
-  border: 2px solid black;
+  transition: background-color 0.5s ease-in-out;
 }
 
 nav ul {
@@ -51,38 +52,225 @@ nav ul {
   list-style: none;
 }
 
-#home {
-  background-color: aquamarine;
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 0 8%;
 }
-#home a {
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 8px;
+}
+
+.hero-text h2 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.hero-img {
+  width: 340px;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 65px 40px 65px 40px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #6c3c0c;
+  color: #fff;
   text-decoration: none;
+  border-radius: 8px;
+}
+
+.btn:hover {
+  background-color: whitesmoke;
   color: black;
-}
-
-#home button {
-  padding: 15px;
-  margin: 5px;
-  border: 3px solid black;
-  background-color: beige;
-}
-
-#home button:hover {
-  background-color: brown;
+  transition:
+    background-color,
+    color 0.4s ease-in-out;
 }
 
 #about {
-  background-color: beige;
-  padding: 200px;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
-#skills {
-  background-color: blue;
-  padding: 200px;
+
+.about p {
+  margin-bottom: 40px;
+  text-align: justify;
 }
+
+
+.skills .tags-softSkills {
+  margin-top: 10px;
+  width: 500px;
+  border: 2px solid black;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  padding: 5px;
+  border-radius: 20px;
+}
+.skills .tags-hardSkills {
+  margin-top: 10px;
+  width: 500px;
+  border: 2px solid black;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  padding: 5px;
+  border-radius: 20px;
+}
+.tag {
+  background-color: #4d4d4d;
+  color: #d3d3d3;
+}
+
 #projects {
-  background-color: brown;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.projects-text h1 {
+  text-align: left;
+  padding: 20px;
+}
+
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #84563c;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: #333333;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-thm {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-thm img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .card-thm img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-title {
+  margin: 0 0 10px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.card-desc {
+  margin: 0 0 20px 0;
+  font-size: 0.9rem;
+  color: whitesmoke;
+  line-height: 1.4;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.tag.html {
+  background-color: #e34f26;
+  color: #fff;
+}
+.tag.css {
+  background-color: #800080;
+  color: #fff;
+}
+.tag.javascript {
+  background-color: #f7df1e;
+  color: #000;
+}
+.tag.git {
+  background-color: #f1502f;
+  color: #000;
+}
+.tag.github {
+  background-color: #24292e;
+  color: #fff;
+}
+.tag.react {
+  background-color: #61dafb;
+  color: #000;
+}
+.tag.upNext {
+  background-color: #84563c;
+  color: white;
+}
+
+
+#contact-me {
   padding: 200px;
 }
-#contact-me {
-  background-color: chocolate;
-  padding: 200px;
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 24px;
+  }
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  .hero-img {
+    width: 220px;
+    height: 220px;
+  }
 }
