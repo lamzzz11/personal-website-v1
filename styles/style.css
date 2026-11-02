@@ -1,21 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url(global.css);
+
+:root {
+  --bg: bisque;
+  --primary: #6c3c0c;
+  --card : #84563c;
+  --text: black;
+}
+
+
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  /* outline: 1px solid red; */
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 15px;
 }
 
 body {
-  font-family: "Popins", sans-serif;
-  background-color: bisque;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
 }
 
 header {
   position: sticky;
   top: 0;
-  z-index: 1000000;
+  z-index: 100;
+  height: 15px;
 }
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -23,26 +40,27 @@ nav {
   padding: 15px;
 }
 
-nav h1 {
+nav .logo {
   margin: 0 10px;
-}
-nav a {
   text-decoration: none;
   color: purple;
+  font-size: 20px;
 }
 
 nav ul a {
   text-decoration: none;
-  color: black;
+  color: var(--text);
   gap: 5px;
   padding: 10px;
 }
 
 nav ul a:hover {
   color: white;
-  background-color: #6c3c0c;
+  background-color: var(--primary);
   border-radius: 10px;
-  transition: background-color 0.5s ease-in-out;
+  transition:
+    background,
+    color 0.3s ease-in-out;
 }
 
 nav ul {
@@ -53,7 +71,7 @@ nav ul {
 }
 
 .hero {
-  min-height: 100vh;
+  min-height: calc(100vh - 15px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -69,7 +87,24 @@ nav ul {
 .hero-text h2 {
   font-size: 1.4rem;
   font-weight: 400;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+}
+
+.socials {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.socials a {
+  font-size: 1.6rem;
+  color: inherit;
+  transition: 0.2s;
+}
+
+.socials a:hover {
+  color: var(--primary);
+  transform: translateY(-3px);
 }
 
 .hero-img {
@@ -82,53 +117,47 @@ nav ul {
 .btn {
   display: inline-block;
   padding: 12px 28px;
-  background: #6c3c0c;
+  background: var(--primary);
   color: #fff;
   text-decoration: none;
   border-radius: 8px;
+  transition:
+    background,
+    color 0.4s ease-in-out;
 }
 
 .btn:hover {
-  background-color: whitesmoke;
-  color: black;
+  background-color: white;
+  color: var(--text);
   transition:
-    background-color,
+    background,
     color 0.4s ease-in-out;
 }
 
 #about {
-  min-height: 70vh;
   display: flex;
-  flex-direction: column;
-  padding: 20px;
+  /* flex-wrap: wrap; */
+  flex-direction: row;
+  padding: 80px 8%;
+  gap: 10px;
 }
 
 .about p {
   margin-bottom: 40px;
   text-align: justify;
+  max-width: 55ch;
 }
 
+.skills .tags-Skills {
+  margin-top: 10px;
+  max-width: 500px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  padding: 5px;
+  margin-right: 8px;
+}
 
-.skills .tags-softSkills {
-  margin-top: 10px;
-  width: 500px;
-  border: 2px solid black;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 5px;
-  padding: 5px;
-  border-radius: 20px;
-}
-.skills .tags-hardSkills {
-  margin-top: 10px;
-  width: 500px;
-  border: 2px solid black;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 5px;
-  padding: 5px;
-  border-radius: 20px;
-}
 .tag {
   background-color: #4d4d4d;
   color: #d3d3d3;
@@ -137,7 +166,7 @@ nav ul {
 #projects {
   display: flex;
   flex-direction: column;
-  padding: 15px;
+  padding: 80px 8%;
   margin-bottom: 10px;
 }
 
@@ -153,19 +182,19 @@ nav ul {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 20px;
 }
 
 .project-card {
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: #84563c;
+  background-color: var(--card);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   text-decoration: none;
-  color: #333333;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Tahoma, Geneva, Verdana, sans-serif;
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
@@ -208,7 +237,7 @@ nav ul {
 .card-desc {
   margin: 0 0 20px 0;
   font-size: 0.9rem;
-  color: whitesmoke;
+  color: white;
   line-height: 1.4;
 }
 
@@ -236,11 +265,11 @@ nav ul {
 }
 .tag.javascript {
   background-color: #f7df1e;
-  color: #000;
+  color: var(--text);
 }
 .tag.git {
   background-color: #f1502f;
-  color: #000;
+  color: var(--text);
 }
 .tag.github {
   background-color: #24292e;
@@ -248,29 +277,114 @@ nav ul {
 }
 .tag.react {
   background-color: #61dafb;
-  color: #000;
+  color: var(--text);
 }
 .tag.upNext {
   background-color: #84563c;
   color: white;
 }
 
+.contact {
+  padding: 80px 8%;
+  text-align: center;
+}
 
-#contact-me {
-  padding: 200px;
+.contact-form {
+  max-width: 500px;
+  margin: 32px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.contact-form input, .contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+  outline: 2px solid #4f46e5;
+  border-color: transparent;
+}
+
+.contact-form .btn {
+  margin-top: 12px;
+  border: none;
+  cursor: pointer;
+  font: inherit;
 }
 
 @media (max-width: 768px) {
+  
+  nav ul {
+    gap: 8px;
+    flex-wrap: wrap ;
+  }
+
+  nav ul a{
+    padding: 6px 8px;
+    font-size: 0.85rem;
+  }
+
+  nav ul .home {
+    display: block;
+  }
+  nav ul .projects {
+    display: none;
+  }
+  nav ul .about {
+    display: none;
+  }
+
   .hero {
     flex-direction: column-reverse;
     text-align: center;
     gap: 24px;
+    justify-content: center;
   }
   .hero-text h1 {
-    font-size: 2rem;
+    font-size: 1.7rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1rem;
   }
   .hero-img {
     width: 220px;
     height: 220px;
   }
+
+  .socials {
+    justify-content: center;
+  }
+
+#about {
+  flex-wrap: wrap;
+}
+
+.about {
+  text-align: center;
+}
+
+.about p {
+  text-align: justify;
+}
+
+.skills {
+  text-align: center;
+}
+
+#projects p {
+  text-align: justify;
+}
+.project-container {
+  width: 100%;
+  height: 550px;
+  justify-content: center;
+}
+
+
 }
